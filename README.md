@@ -6,6 +6,6 @@ Para acessar os endpoints
 
 http://localhost:8000/docs
 
-
 Para testar:
 
+pytest
