@@ -1,9 +1,4 @@
-from typing import List
-from uuid import UUID
-from venv import create
 from fastapi import FastAPI, HTTPException
-from grpc import StatusCode
-from numpy import delete
 from models import AtualizarFilme, AtualizarPlaneta, Filme, Planeta, Excluido, InserirPlaneta
 import sqlite3
 import requests
@@ -12,16 +7,9 @@ import sys, asyncio
 if sys.platform == "win32" and (3, 8, 0) <= sys.version_info < (3, 9, 0):
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
-item = '1'
-def test():
-    print(item)
-
 app = FastAPI()
-
 conn = sqlite3.connect('Starwars.db', check_same_thread=False)
-
 conn.row_factory = sqlite3.Row
-
 c = conn.cursor()
 
 @app.get('/')
